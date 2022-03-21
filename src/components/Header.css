@@ -1,0 +1,11 @@
+.header {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header__LogoutButton {
+  width: 2 rem;
+  height: 1.5rem;
+}
