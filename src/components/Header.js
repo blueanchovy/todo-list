@@ -24,10 +24,12 @@ function Header() {
         <h2>To-Do List</h2>
       </div>
       <div className="header__right">
-        <button className="header__LogoutButton" onClick={signout}>
+        <div className="header__LogoutButton" onClick={signout}>
           Log Out
-        </button>
-        <div className="header__UserAvatar"></div>
+        </div>
+        <div className="header__UserAvatar">
+          <img src={user.photoURL} alt="" />
+        </div>
       </div>
     </div>
   );
