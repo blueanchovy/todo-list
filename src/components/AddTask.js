@@ -1,48 +1,40 @@
-import { addDoc, collection } from "firebase/firestore";
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addTaskToList, selectTask } from "../features/todoSlice";
 import "./AddTask.css";
 
 function AddTask() {
-  //   const [input, setInput] = useState("");
-  //   const user = auth.currentUser;
-  const sendMessage = (e) => {
-    e.preventDefault();
-    // const channelRef = doc(db, "rooms", channelId);
+  const dispatch = useDispatch();
+  const taskList = useSelector(selectTask);
 
-    // if (!channelId) {
-    //   return false;
-    // }
-
-    // addDoc(collection(channelRef, "messages"), {
-    //   message: input,
-    //   timestamp: serverTimestamp(),
-    //   user: user.displayName,
-    //   userImage: user.photoURL,
-    // });
-
-    // chatRef.current.scrollIntoView({
-    //   behavior: "smooth",
-    // });
-
-    // setInput("");
-  };
+  const [newTask, setNewTask] = useState("");
+  const newTaskStatus = "Pending";
   return (
     <div className="addTask">
-      {/* <form>
-        <input
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder={`Message #${channelName}`}
-        />
-        <Button hidden type="submit">
-          Send
-        </Button>
-      </form> */}
       <div className="addTask__form">
         <form action="">
-          <input />
-          <button>
-            {/* <p> Add Task </p> */}
+          <input
+            value={newTask}
+            placeholder="Enter To Do Item"
+            onChange={(e) => {
+              setNewTask(e.target.value);
+            }}
+          />
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              console.log(taskList[taskList.length - 1].id + 1);
+              dispatch(
+                addTaskToList({
+                  id: taskList[taskList.length - 1].id + 1,
+                  key: taskList[taskList.length - 1].key + 1,
+                  name: newTask,
+                  status: newTaskStatus,
+                })
+              );
+              setNewTask("");
+            }}
+          >
             Add Task
           </button>
         </form>
