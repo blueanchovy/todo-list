@@ -1,0 +1,52 @@
+.addTask {
+  display: flex;
+  justify-content: center;
+}
+
+.addTask__form {
+  background-color: white;
+  border: 1px solid lightgray;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  width: 90vw;
+  max-width: 350px !important;
+
+  position: relative;
+
+  border-radius: 5px;
+  margin: 1rem;
+}
+
+.addTask__form > form {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  height: 2rem;
+}
+
+.addTask__form > form > input {
+  height: 1rem;
+  width: 75%;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+
+  border: 0.5px solid gray;
+
+  border-radius: 3px;
+}
+
+.addTask__form > form > input:focus {
+  border: 1px solid gray !important;
+}
+
+.addTask__form > form > button {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  height: 1.2rem;
+  border: 0.5px solid gray;
+  background-color: #fcd34d;
+  cursor: pointer;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  border-radius: 3px;
+}
