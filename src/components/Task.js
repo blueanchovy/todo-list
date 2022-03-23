@@ -10,7 +10,7 @@ function Task({ id, name, status }) {
       <div className="task__name">Task Name: {name}</div>
       <div className="task__status">Status: {status}</div>
       <div className="task__markDone">
-        {status != "Done" ? (
+        {status !== "Done" ? (
           <button
             onClick={() => dispatch(updateTaskStatus({ id, status: "Done" }))}
           >

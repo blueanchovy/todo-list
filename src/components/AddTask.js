@@ -8,7 +8,7 @@ function AddTask() {
   const taskList = useSelector(selectTask);
 
   const [newTask, setNewTask] = useState("");
-  const [TaskStatus, setTaskStatus] = useState("Pending");
+  const TaskStatus = "Pending";
   return (
     <div className="addTask">
       <div className="addTask__form">
