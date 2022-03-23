@@ -8,7 +8,7 @@ function AddTask() {
   const taskList = useSelector(selectTask);
 
   const [newTask, setNewTask] = useState("");
-  const newTaskStatus = "Pending";
+  const [TaskStatus, setTaskStatus] = useState("Pending");
   return (
     <div className="addTask">
       <div className="addTask__form">
@@ -23,13 +23,13 @@ function AddTask() {
           <button
             onClick={(e) => {
               e.preventDefault();
-              console.log(taskList[taskList.length - 1].id + 1);
+
               dispatch(
                 addTaskToList({
                   id: taskList[taskList.length - 1].id + 1,
                   key: taskList[taskList.length - 1].key + 1,
                   name: newTask,
-                  status: newTaskStatus,
+                  status: TaskStatus,
                 })
               );
               setNewTask("");

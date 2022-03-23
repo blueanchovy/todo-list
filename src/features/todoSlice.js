@@ -15,12 +15,24 @@ export const todoSlice = createSlice({
       state.value.push(action.payload);
     },
     deleteTaskFromList: (state, action) => {
-      state.value = state.value.filter((task) => task.id !== action.payload.id);
+      console.log(action.payload);
+      state.value = state.value.filter((task) => task.id !== action.payload);
+    },
+    updateTaskStatus: (state, action) => {
+      state.value.map((task) => {
+        if (
+          task.id === action.payload.id &&
+          task.status !== action.payload.status
+        ) {
+          task.status = action.payload.status;
+        }
+      });
     },
   },
 });
 
-export const { addTaskToList, deleteTaskFromList } = todoSlice.actions;
+export const { addTaskToList, deleteTaskFromList, updateTaskStatus } =
+  todoSlice.actions;
 
 export const selectTask = (state) => state.tasks.value;
 
