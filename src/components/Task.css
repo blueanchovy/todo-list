@@ -1,0 +1,20 @@
+.task {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 0.5px solid #fcd34d;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 5px;
+}
+
+.task__name {
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.task__button > button {
+  cursor: pointer;
+}

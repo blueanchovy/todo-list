@@ -7,23 +7,27 @@ function Task({ id, name, status }) {
   const dispatch = useDispatch();
   return (
     <div className="task">
-      <div className="task__name">Task Name: {name}</div>
-      <div className="task__status">Status: {status}</div>
-      <div className="task__markDone">
-        {status !== "Done" ? (
-          <button
-            onClick={() => dispatch(updateTaskStatus({ id, status: "Done" }))}
-          >
-            Mark as Done
-          </button>
-        ) : (
-          ""
-        )}
+      <div className="task__data">
+        <div className="task__name">Task Name: {name}</div>
+        <div className="task__status">Status: {status}</div>
       </div>
-      <div className="task__delete">
-        <button onClick={() => dispatch(deleteTaskFromList(id))}>
-          Delete Task
-        </button>
+      <div className="task__actions">
+        <div className="task__button">
+          <button onClick={() => dispatch(deleteTaskFromList(id))}>
+            Delete Task
+          </button>
+        </div>
+        <div className="task__button">
+          {status !== "Done" ? (
+            <button
+              onClick={() => dispatch(updateTaskStatus({ id, status: "Done" }))}
+            >
+              Mark as Done
+            </button>
+          ) : (
+            ""
+          )}
+        </div>
       </div>
     </div>
   );
